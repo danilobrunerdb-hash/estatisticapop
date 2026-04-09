@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon, BookOpen, Layers, Activity, TrendingUp } from 'lucide-react';
+import { Sun, Moon, BookOpen, Layers, Activity, TrendingUp, Sigma } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useProjectionContext } from '../../context/ProjectionContext';
@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <header className={`${isGreen ? 'bg-gradient-to-r from-[#0a2e18] via-[#115e34] to-[#1cb061] dark:from-[#03150b] dark:via-[#072b16] dark:to-[#0b4724] border-white/10 dark:border-white/5' : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800'} border-b px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6 z-50 relative transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-none overflow-hidden`}>
-      
+
       {isGreen && <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none" />}
 
       <div className="flex items-center gap-4 md:gap-6 relative z-10">
@@ -40,14 +40,14 @@ export const Header = () => {
         {/* Manual Modal */}
         <Dialog open={isManualOpen} onOpenChange={setIsManualOpen}>
           <DialogTrigger asChild>
-            <Button variant="outline" size="icon" className={`h-10 w-10 rounded-xl transition-colors ${isGreen ? 'text-white bg-white/10 border-white/20 hover:text-emerald-900 hover:bg-white/90 backdrop-blur-sm shadow-sm' : 'text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700'}`}>
+            <Button variant="outline" size="icon" className={`h-10 w-10 rounded-xl transition-colors ${isGreen ? 'text-white bg-white/10 border-white/20 hover:text-emerald-900 hover:bg-white/90 backdrop-blur-sm shadow-sm' : 'text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:text-emerald-600 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm'}`}>
               <BookOpen className="w-5 h-5" />
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-[#f4f7f5] dark:bg-[#0a0f16] border border-slate-200 dark:border-slate-800 sm:rounded-[2rem] shadow-2xl p-6 md:p-10 scrollbar-thin z-[100]">
             <DialogHeader className="pb-4 mb-4 border-b border-slate-200/50 dark:border-slate-800/50">
               <DialogTitle className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter flex items-center gap-3">
-                <div className="p-3 bg-blue-500/10 dark:bg-blue-500/20 rounded-2xl text-blue-600 dark:text-blue-400">
+                <div className="p-3 bg-emerald-500/10 dark:bg-emerald-500/20 rounded-2xl text-emerald-600 dark:text-emerald-400">
                   <BookOpen className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
                 Manual de Instruções
@@ -81,7 +81,7 @@ export const Header = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <section>
                   <h3 className="text-lg font-black text-slate-800 dark:text-slate-200 uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-blue-500" /> O Desvio Padrão
+                    <span className="text-2xl font-serif text-emerald-500 italic lowercase leading-none pb-1 select-none">σ</span> O Desvio Padrão
                   </h3>
                   <div className="bg-white dark:bg-slate-900 p-5 md:p-6 rounded-2xl border border-slate-100 dark:border-slate-800 h-full shadow-[0_4px_20px_rgb(0,0,0,0.03)] dark:shadow-none">
                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">

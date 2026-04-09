@@ -61,7 +61,7 @@ export const Sidebar = () => {
                 { label: 'Estaca Atual (t2)', year: t2, setYear: setT2, pop: p2, setPop: setP2 },
               ].map((item, idx) => (
                 <div key={idx} className="bg-white dark:bg-slate-900/80 p-4.5 rounded-[1.25rem] border border-slate-200/80 dark:border-slate-700/80 space-y-3 shadow-[0_2px_15px_rgba(0,0,0,0.02)] hover:shadow-md transition-all duration-300 relative overflow-hidden group">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-slate-200 dark:bg-slate-700 group-hover:bg-blue-400 transition-colors" />
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-slate-200 dark:bg-slate-700 group-hover:bg-slate-900 dark:group-hover:bg-white transition-colors" />
                   <Label className="text-[10px] text-slate-800 dark:text-slate-300 font-black uppercase tracking-widest ml-2">{item.label}</Label>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-1.5">
@@ -70,7 +70,7 @@ export const Sidebar = () => {
                         type="number"
                         value={item.year}
                         onChange={(e) => item.setYear(Number(e.target.value))}
-                        className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold shadow-inner focus:border-blue-500 focus:ring-blue-500/20 transition-all rounded-xl"
+                        className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold shadow-inner focus:border-slate-900 dark:focus:border-white focus:ring-slate-900/10 transition-all rounded-xl"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -79,7 +79,7 @@ export const Sidebar = () => {
                         type="number"
                         value={item.pop}
                         onChange={(e) => item.setPop(Number(e.target.value))}
-                        className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold shadow-inner focus:border-blue-500 focus:ring-blue-500/20 transition-all rounded-xl"
+                        className="h-9 bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold shadow-inner focus:border-slate-900 dark:focus:border-white focus:ring-slate-900/10 transition-all rounded-xl"
                       />
                     </div>
                   </div>
