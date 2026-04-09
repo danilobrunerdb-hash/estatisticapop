@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { BarChart3 } from 'lucide-react';
 import {
-  ComposedChart, Area, Line, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+  ComposedChart, Area, Line, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine
 } from 'recharts';
 import { useProjectionContext } from '../../context/ProjectionContext';
 import { formatNumber } from '../../../backend/utils/formatters';
@@ -105,6 +105,16 @@ export const ProjectionChart = ({ singleMethodId }: { singleMethodId?: string })
               label={{ value: 'População (Hab)', angle: -90, position: 'insideLeft', fontSize: 10, fontWeight: 'bold' }}
             />
             <Tooltip content={<CustomTooltip />} />
+
+            {(singleMethodId === 'logistic' || singleMethodId === 'decreasing') && activeMethod?.coefficients.Ps && (
+              <ReferenceLine 
+                y={activeMethod.coefficients.Ps} 
+                stroke="#0f172a" 
+                strokeDasharray="4 4" 
+                strokeWidth={1.5}
+                label={{ position: 'insideTopLeft', value: 'Pop. Saturação (Ps)', fill: '#0f172a', fontSize: 10, fontWeight: '900' }} 
+              />
+            )}
 
             <Area type="monotone" dataKey={singleMethodId || 'arithmetic'} stroke="none" fill="url(#colorPop)" animationDuration={1000} />
 

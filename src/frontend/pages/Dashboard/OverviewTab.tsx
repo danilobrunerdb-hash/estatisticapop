@@ -8,7 +8,7 @@ import {
   ComposedChart, Area, Line, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 import { useProjectionContext } from '../../context/ProjectionContext';
-import { formatNumber } from '../../../backend/utils/formatters';
+import { formatNumber, formatCoefficient } from '../../../backend/utils/formatters';
 
 export const OverviewTab = () => {
   const {
@@ -150,7 +150,7 @@ export const OverviewTab = () => {
                         <div className="flex flex-wrap items-center gap-1.5">
                           {Object.entries(res.coefficients).map(([key, val]) => (
                             <span key={key} className="text-[9px] font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded-md border border-slate-200/50 dark:border-slate-700 whitespace-nowrap">
-                              <span className="text-slate-400 dark:text-slate-500">{key}:</span> {(val as number).toExponential(2)}
+                              <span className="text-slate-400 dark:text-slate-500">{key}:</span> {formatCoefficient(key, val as number, true)}
                             </span>
                           ))}
                         </div>

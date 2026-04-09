@@ -3,7 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Activity, ArrowLeft, Download, Layers, Ruler, Settings2 } from 'lucide-react';
 import { useProjectionContext } from '../../context/ProjectionContext';
-import { formatNumber } from '../../../backend/utils/formatters';
+import { formatNumber, formatCoefficient } from '../../../backend/utils/formatters';
 import { ProjectionResult } from '../../../backend/models/ProjectionTypes';
 import { ProjectionChart } from '../../components/dashboard/ProjectionChart';
 
@@ -52,7 +52,7 @@ export const MethodTab = () => {
               {Object.entries(res.coefficients).map(([key, val]) => (
                 <div key={key} className="bg-white dark:bg-slate-900 p-4 rounded-[1.25rem] border border-slate-200 dark:border-slate-800 flex flex-col justify-center shadow-sm">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">{key}</span>
-                  <span className="text-base md:text-lg font-black text-slate-800 dark:text-slate-200 tracking-tighter">{(val as number).toExponential(4)}</span>
+                  <span className="text-base md:text-lg font-black text-slate-800 dark:text-slate-200 tracking-tighter">{formatCoefficient(key, val as number)}</span>
                 </div>
               ))}
               <div className="bg-white dark:bg-slate-900 p-4 rounded-[1.25rem] border border-slate-200 dark:border-slate-800 flex flex-col justify-center shadow-sm">
