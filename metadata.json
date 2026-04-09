@@ -1,0 +1,5 @@
+{
+  "name": "Remix: Modelagem Matemática - Projeção Populacional",
+  "description": "Calculadora de projeção populacional utilizando métodos aritmético, geométrico, regressão, taxa decrescente e logístico.",
+  "requestFramePermissions": []
+}
