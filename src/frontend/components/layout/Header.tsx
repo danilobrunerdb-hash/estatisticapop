@@ -5,36 +5,42 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { useProjectionContext } from '../../context/ProjectionContext';
 
 export const Header = () => {
-  const { isDarkMode, setIsDarkMode, isManualOpen, setIsManualOpen } = useProjectionContext();
+  const { isDarkMode, setIsDarkMode, isManualOpen, setIsManualOpen, headerTheme } = useProjectionContext();
+
+  const isGreen = headerTheme === 'green';
 
   return (
-    <header className="bg-white dark:bg-slate-900 border-b-2 border-slate-200 dark:border-slate-800 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6 z-50 relative transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none">
-      <div className="flex items-center gap-4 md:gap-6">
-        <div className="p-2 bg-white rounded-xl md:rounded-2xl shadow-sm border border-slate-200">
-          <img src="https://www.ifmg.edu.br/portal/centrais-de-conteudos/publicacoes/informativo/183/183_arquivos/logo-1.png" alt="IFMG Logo" className="h-8 md:h-10 object-contain" />
+    <header className={`${isGreen ? 'bg-gradient-to-r from-[#0a2e18] via-[#115e34] to-[#1cb061] dark:from-[#03150b] dark:via-[#072b16] dark:to-[#0b4724] border-white/10 dark:border-white/5' : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800'} border-b px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6 z-50 relative transition-all duration-500 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-none overflow-hidden`}>
+      
+      {isGreen && <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay pointer-events-none" />}
+
+      <div className="flex items-center gap-4 md:gap-6 relative z-10">
+        <div className={`p-2.5 bg-white rounded-xl md:rounded-2xl flex items-center justify-center relative overlow-hidden ${isGreen ? 'shadow-lg border-2 border-white/20' : 'shadow-sm border border-slate-200 dark:border-slate-800 dark:bg-slate-900'}`}>
+          <img src="https://www.ifmg.edu.br/portal/centrais-de-conteudos/publicacoes/informativo/183/183_arquivos/logo-1.png" alt="IFMG Logo" className={`h-8 md:h-10 object-contain ${isGreen ? 'drop-shadow-sm' : ''}`} />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tighter leading-none mb-1">
+          <h1 className={`text-2xl md:text-3xl font-black tracking-tighter leading-none mb-1 ${isGreen ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
             Projeção Populacional
           </h1>
-          <span className="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-widest flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          <span className={`text-xs font-bold uppercase tracking-widest flex items-center gap-2 ${isGreen ? 'text-green-100' : 'text-green-600 dark:text-green-400'}`}>
+            <span className={`w-2 h-2 rounded-full animate-pulse ${isGreen ? 'bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.8)]' : 'bg-green-500'}`}></span>
             Sistemas de Transportes
           </span>
         </div>
       </div>
 
-      <div className="flex items-center gap-4 text-xs md:text-sm text-slate-600 dark:text-slate-400 bg-white/50 dark:bg-black/20 p-3 rounded-2xl border border-slate-200/50 dark:border-white/5 shadow-sm">
-        <div className="flex flex-col text-right">
-          <p><span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mr-2">Prof</span> <strong className="text-slate-800 dark:text-slate-200 text-sm">Fábio Generoso</strong></p>
-          <p><span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mr-2">Alunos</span> <strong className="text-slate-800 dark:text-slate-200 text-sm">Danilo Bruner, Weberson V.</strong></p>
+      <div className={`flex items-center gap-4 text-xs md:text-sm p-2.5 px-4 rounded-[1.25rem] shadow-sm relative overflow-hidden group z-10 ${isGreen ? 'bg-black/20 backdrop-blur-md border border-white/10 shadow-inner' : 'bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800'}`}>
+        <div className={`absolute inset-0 bg-gradient-to-r from-transparent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ${isGreen ? 'via-white/5' : 'via-slate-200/50 dark:via-white/5'}`} />
+        <div className="flex flex-col text-right relative z-10">
+          <p><span className={`text-[9px] uppercase font-bold tracking-[0.2em] mr-2 ${isGreen ? 'text-emerald-200/70' : 'text-slate-400'}`}>Prof</span> <strong className={`text-xs md:text-sm ${isGreen ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>Fábio Generoso</strong></p>
+          <p><span className={`text-[9px] uppercase font-bold tracking-[0.2em] mr-2 ${isGreen ? 'text-emerald-200/70' : 'text-slate-400'}`}>Estudantes</span> <strong className={`text-xs md:text-sm ${isGreen ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>Danilo B., Weberson V.</strong></p>
         </div>
-        <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden md:block mx-1" />
+        <div className={`w-px h-8 hidden md:block mx-1 ${isGreen ? 'bg-white/20' : 'bg-slate-200 dark:bg-slate-700'}`} />
 
         {/* Manual Modal */}
         <Dialog open={isManualOpen} onOpenChange={setIsManualOpen}>
           <DialogTrigger asChild>
-            <Button variant="outline" size="icon" className="h-10 w-10 text-slate-500 dark:text-slate-400 rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm">
+            <Button variant="outline" size="icon" className={`h-10 w-10 rounded-xl transition-colors ${isGreen ? 'text-white bg-white/10 border-white/20 hover:text-emerald-900 hover:bg-white/90 backdrop-blur-sm shadow-sm' : 'text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-700'}`}>
               <BookOpen className="w-5 h-5" />
             </Button>
           </DialogTrigger>
@@ -108,8 +114,8 @@ export const Header = () => {
           </DialogContent>
         </Dialog>
 
-        <Button variant="outline" size="icon" className="h-10 w-10 rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm" onClick={() => setIsDarkMode(!isDarkMode)}>
-          {isDarkMode ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5 text-slate-500" />}
+        <Button variant="outline" size="icon" className={`h-10 w-10 rounded-xl transition-colors ${isGreen ? 'text-white bg-white/10 border-white/20 hover:text-emerald-900 hover:bg-white/90 backdrop-blur-sm shadow-sm' : 'text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm'}`} onClick={() => setIsDarkMode(!isDarkMode)}>
+          {isDarkMode ? <Sun className={`w-5 h-5 ${isGreen ? 'text-yellow-300' : 'text-yellow-500'}`} /> : <Moon className={`w-5 h-5 ${isGreen ? 'text-white' : 'text-slate-400'}`} />}
         </Button>
       </div>
     </header>

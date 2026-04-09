@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings2, RefreshCcw, Activity, Ruler } from 'lucide-react';
+import { Settings2, RefreshCcw, Activity, Ruler, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -14,7 +14,8 @@ export const Sidebar = () => {
     t1, setT1, p1, setP1,
     t2, setT2, p2, setP2,
     targetYear, setTargetYear,
-    manualCoeffs, setManualCoeffs
+    manualCoeffs, setManualCoeffs,
+    headerTheme, setHeaderTheme
   } = useProjectionContext();
 
   return (
@@ -130,6 +131,40 @@ export const Sidebar = () => {
                     />
                   </div>
                 ))}
+              </div>
+            </section>
+
+            {/* Application Theme section */}
+            <section className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                <Palette className="w-3.5 h-3.5" />
+                <span className="text-[10px] font-bold uppercase tracking-widest">Tema do Cabeçalho</span>
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  onClick={() => setHeaderTheme('gray')}
+                  className={cn(
+                    "flex-1 text-[10px] uppercase font-bold tracking-widest h-9 rounded-xl border",
+                    headerTheme === 'gray' 
+                      ? "bg-slate-800 text-white border-slate-800 dark:bg-white dark:text-slate-900" 
+                      : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500 hover:bg-slate-100"
+                  )}
+                >
+                  Padrão
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setHeaderTheme('green')}
+                  className={cn(
+                    "flex-1 text-[10px] uppercase font-bold tracking-widest h-9 rounded-xl border transition-all",
+                    headerTheme === 'green'
+                      ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white border-transparent shadow-[0_0_10px_rgba(16,185,129,0.3)]"
+                      : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-500 hover:text-emerald-600 hover:border-emerald-200"
+                  )}
+                >
+                  Tema IFMG
+                </Button>
               </div>
             </section>
           </div>

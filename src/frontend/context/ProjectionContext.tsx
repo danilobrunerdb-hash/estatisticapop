@@ -18,6 +18,7 @@ interface ProjectionContextData {
   activeTab: string; setActiveTab: (v: string) => void;
   isSidebarOpen: boolean; setIsSidebarOpen: (v: boolean) => void;
   isDarkMode: boolean; setIsDarkMode: (v: boolean) => void;
+  headerTheme: 'gray' | 'green'; setHeaderTheme: (v: 'gray' | 'green') => void;
   
   visibleMethods: Record<string, boolean>;
   toggleMethod: (id: string) => void;
@@ -48,6 +49,7 @@ export const ProjectionProvider = ({ children }: { children: ReactNode }) => {
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [headerTheme, setHeaderTheme] = useState<'gray' | 'green'>('green');
 
   const [visibleMethods, setVisibleMethods] = useState<Record<string, boolean>>({
     arithmetic: true,
@@ -83,7 +85,7 @@ export const ProjectionProvider = ({ children }: { children: ReactNode }) => {
     <ProjectionContext.Provider value={{
       t0, setT0, p0, setP0, t1, setT1, p1, setP1, t2, setT2, p2, setP2, targetYear, setTargetYear,
       isMemorialOpen, setIsMemorialOpen, isManualOpen, setIsManualOpen, activeTab, setActiveTab,
-      isSidebarOpen, setIsSidebarOpen, isDarkMode, setIsDarkMode,
+      isSidebarOpen, setIsSidebarOpen, isDarkMode, setIsDarkMode, headerTheme, setHeaderTheme,
       visibleMethods, toggleMethod, manualCoeffs, setManualCoeffs,
       results, stats, chartData, generatePDF, exportToExcel
     }}>
