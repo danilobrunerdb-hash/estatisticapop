@@ -627,7 +627,7 @@ export default function App() {
     <div className={cn("min-h-screen flex flex-col font-sans selection:bg-green-200 transition-colors duration-500", isDarkMode ? "dark bg-[#0a0f16] text-slate-100" : "bg-[#f4f7f5] text-slate-900")}>
 
       {/* App Shell Top Header - Modern styling */}
-      <header className="bg-white dark:bg-slate-900 border-b-2 border-slate-200 dark:border-slate-800 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6 z-[60] relative transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none">
+      <header className="bg-white dark:bg-slate-900 border-b-2 border-slate-200 dark:border-slate-800 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6 z-20 relative transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none">
         <div className="flex items-center gap-4 md:gap-6">
           <div className="p-2 bg-white rounded-xl md:rounded-2xl shadow-sm border border-slate-200">
             <img src="https://www.ifmg.edu.br/portal/centrais-de-conteudos/publicacoes/informativo/183/183_arquivos/logo-1.png" alt="IFMG Logo" className="h-8 md:h-10 object-contain" />
@@ -657,7 +657,7 @@ export default function App() {
                 <BookOpen className="w-5 h-5" />
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#f4f7f5] dark:bg-[#0a0f16] border border-slate-200 dark:border-slate-800 sm:rounded-[2rem] shadow-2xl p-6 md:p-8">
+            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-[#f4f7f5] dark:bg-[#0a0f16] border border-slate-200 dark:border-slate-800 sm:rounded-[2rem] shadow-2xl p-6 md:p-10 scrollbar-thin z-[100]">
               <DialogHeader className="pb-4 mb-4 border-b border-slate-200/50 dark:border-slate-800/50">
                 <DialogTitle className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter flex items-center gap-3">
                   <div className="p-3 bg-blue-500/10 dark:bg-blue-500/20 rounded-2xl text-blue-600 dark:text-blue-400">
@@ -734,7 +734,7 @@ export default function App() {
       </header>
 
       {/* App Toolbar */}
-      <div className="bg-white/40 dark:bg-[#0a0f16]/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 px-4 md:px-8 py-3 flex flex-col md:flex-row items-center justify-between sticky top-0 z-50 gap-4 transition-colors">
+      <div className="bg-white/40 dark:bg-[#0a0f16]/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 px-4 md:px-8 py-3 flex flex-col md:flex-row items-center justify-between sticky top-0 z-30 gap-4 transition-colors">
         <div className="flex items-center gap-2 w-full md:w-auto">
           <button
             className="md:hidden p-2 bg-white dark:bg-slate-800 rounded-xl text-slate-500 dark:text-slate-400 hover:text-green-600 shadow-sm border border-slate-200 dark:border-slate-700"
@@ -776,7 +776,7 @@ export default function App() {
                 <FileText className="w-4 h-4" /> VER MEMORIAL DE CÁLCULO
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto bg-[#f4f7f5] dark:bg-[#0a0f16] border border-slate-200 dark:border-slate-800 sm:rounded-[2rem] shadow-2xl p-6 md:p-8">
+            <DialogContent className="max-w-6xl max-h-[85vh] overflow-y-auto bg-[#f4f7f5] dark:bg-[#0a0f16] border border-slate-200 dark:border-slate-800 sm:rounded-[2rem] shadow-2xl p-6 md:p-10 scrollbar-thin">
               <DialogHeader className="pb-4 mb-2">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div>
@@ -1078,7 +1078,7 @@ export default function App() {
                             <FileText className="w-3 h-3" /> Ver Memorial
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto bg-[#f4f7f5] dark:bg-[#0a0f16] border border-slate-200 dark:border-slate-800 sm:rounded-[2rem] shadow-2xl p-6 md:p-8">
+                        <DialogContent className="max-w-6xl max-h-[80vh] overflow-y-auto bg-[#f4f7f5] dark:bg-[#0a0f16] border border-slate-200 dark:border-slate-800 sm:rounded-[2rem] shadow-2xl p-6 md:p-8 z-[100]">
                           <DialogHeader className="pb-4 mb-2">
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                               <div>
