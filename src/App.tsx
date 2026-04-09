@@ -627,7 +627,7 @@ export default function App() {
     <div className={cn("min-h-screen flex flex-col font-sans selection:bg-green-200 transition-colors duration-500", isDarkMode ? "dark bg-[#0a0f16] text-slate-100" : "bg-[#f4f7f5] text-slate-900")}>
 
       {/* App Shell Top Header - Modern styling */}
-      <header className="bg-white dark:bg-slate-900 border-b-2 border-slate-200 dark:border-slate-800 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6 z-20 relative transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none">
+      <header className="bg-white dark:bg-slate-900 border-b-2 border-slate-200 dark:border-slate-800 px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-6 z-50 relative transition-all duration-300 shadow-[0_4px_25px_rgba(0,0,0,0.05)] dark:shadow-none">
         <div className="flex items-center gap-4 md:gap-6">
           <div className="p-2 bg-white rounded-xl md:rounded-2xl shadow-sm border border-slate-200">
             <img src="https://www.ifmg.edu.br/portal/centrais-de-conteudos/publicacoes/informativo/183/183_arquivos/logo-1.png" alt="IFMG Logo" className="h-8 md:h-10 object-contain" />
@@ -734,7 +734,7 @@ export default function App() {
       </header>
 
       {/* App Toolbar */}
-      <div className="bg-white/40 dark:bg-[#0a0f16]/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 px-4 md:px-8 py-3 flex flex-col md:flex-row items-center justify-between sticky top-0 z-30 gap-4 transition-colors">
+      <div className="bg-white/40 dark:bg-[#0a0f16]/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 px-4 md:px-8 py-3 flex flex-col md:flex-row items-center justify-between sticky top-0 z-50 gap-4 transition-colors">
         <div className="flex items-center gap-2 w-full md:w-auto">
           <button
             className="md:hidden p-2 bg-white dark:bg-slate-800 rounded-xl text-slate-500 dark:text-slate-400 hover:text-green-600 shadow-sm border border-slate-200 dark:border-slate-700"
@@ -883,7 +883,7 @@ export default function App() {
 
         {/* Left Sidebar - Floating Bento Panel */}
         <aside className={cn(
-          "w-80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/60 dark:border-slate-800/60 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-none z-40 absolute md:relative inset-y-0 left-0 transition-transform duration-500 h-full md:rounded-3xl overflow-hidden",
+          "w-80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/60 dark:border-slate-800/60 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-none z-10 absolute md:relative inset-y-0 left-0 transition-transform duration-500 h-full md:rounded-3xl overflow-hidden",
           isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         )}>
           <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-950 transition-colors">
