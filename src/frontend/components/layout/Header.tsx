@@ -33,7 +33,7 @@ export const Header = () => {
         <div className={`absolute inset-0 bg-gradient-to-r from-transparent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ${isGreen ? 'via-white/5' : 'via-slate-200/50 dark:via-white/5'}`} />
         <div className="flex flex-col text-right relative z-10">
           <p><span className={`text-[9px] uppercase font-bold tracking-[0.2em] mr-2 ${isGreen ? 'text-emerald-200/70' : 'text-slate-400'}`}>Prof</span> <strong className={`text-xs md:text-sm ${isGreen ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>Fábio Generoso</strong></p>
-          <p><span className={`text-[9px] uppercase font-bold tracking-[0.2em] mr-2 ${isGreen ? 'text-emerald-200/70' : 'text-slate-400'}`}>Estudantes</span> <strong className={`text-xs md:text-sm ${isGreen ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>Danilo B., Weberson V.</strong></p>
+          <p><span className={`text-[9px] uppercase font-bold tracking-[0.2em] mr-2 ${isGreen ? 'text-emerald-200/70' : 'text-slate-400'}`}>Estudantes</span> <strong className={`text-xs md:text-sm ${isGreen ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>Danilo Bruner, Weberson Valadares</strong></p>
         </div>
         <div className={`w-px h-8 hidden md:block mx-1 ${isGreen ? 'bg-white/20' : 'bg-slate-200 dark:bg-slate-700'}`} />
 
