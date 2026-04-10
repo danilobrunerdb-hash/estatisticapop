@@ -80,10 +80,12 @@ export const ProjectionChart = ({ singleMethodId }: { singleMethodId?: string })
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={chartData}>
             <defs>
-              <linearGradient id="colorPop" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={areaColor} stopOpacity={0.15} />
-                <stop offset="95%" stopColor={areaColor} stopOpacity={0} />
-              </linearGradient>
+              {results.map((res) => (
+                <linearGradient key={`grad-${res.id}`} id={`color-${res.id}`} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor={res.color} stopOpacity={0.2} />
+                  <stop offset="95%" stopColor={res.color} stopOpacity={0} />
+                </linearGradient>
+              ))}
             </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={true} stroke="#E2E8F0" />
             <XAxis
@@ -116,17 +118,16 @@ export const ProjectionChart = ({ singleMethodId }: { singleMethodId?: string })
               />
             )}
 
-            <Area type="monotone" dataKey={singleMethodId || 'arithmetic'} stroke="none" fill="url(#colorPop)" animationDuration={1000} />
-
             {results
               .filter(res => singleMethodId ? res.id === singleMethodId : visibleMethods[res.id])
               .map((res) => (
-                <Line
+                <Area
                   key={res.id}
                   type="monotone"
                   dataKey={res.id}
                   stroke={res.color}
                   strokeWidth={res.id === 'logistic' || singleMethodId ? 3 : 2}
+                  fill={`url(#color-${res.id})`}
                   dot={false}
                   name={res.method}
                   animationDuration={1500}

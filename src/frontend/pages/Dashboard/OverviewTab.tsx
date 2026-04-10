@@ -209,10 +209,12 @@ export const OverviewTab = () => {
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart data={chartData}>
               <defs>
-                <linearGradient id="colorPop" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.1} />
-                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
-                </linearGradient>
+                {results.map((res) => (
+                  <linearGradient key={`grad-${res.id}`} id={`color-${res.id}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor={res.color} stopOpacity={0.2} />
+                    <stop offset="95%" stopColor={res.color} stopOpacity={0} />
+                  </linearGradient>
+                ))}
               </defs>
               <CartesianGrid strokeDasharray="3 3" vertical={true} stroke="#E2E8F0" />
               <XAxis
@@ -235,15 +237,14 @@ export const OverviewTab = () => {
               />
               <Tooltip content={<CustomTooltip />} />
 
-              <Area type="monotone" dataKey="arithmetic" stroke="none" fill="url(#colorPop)" />
-
               {results.filter(res => visibleMethods[res.id]).map((res) => (
-                <Line
+                <Area
                   key={res.id}
                   type="monotone"
                   dataKey={res.id}
                   stroke={res.color}
                   strokeWidth={res.id === 'logistic' ? 3 : 2}
+                  fill={`url(#color-${res.id})`}
                   dot={false}
                   name={res.method}
                   animationDuration={1500}
