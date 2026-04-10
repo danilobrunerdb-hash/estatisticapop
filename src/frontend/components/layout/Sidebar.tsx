@@ -22,15 +22,15 @@ export const Sidebar = () => {
     <>
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-slate-900/60 z-30 md:hidden backdrop-blur-md transition-opacity"
+          className="fixed inset-0 bg-slate-900/60 z-30 hidden max-md:block landscape:max-[1200px]:block backdrop-blur-md transition-opacity"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Left Sidebar - Floating Bento Panel */}
       <aside className={cn(
-        "w-80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/60 dark:border-slate-800/60 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-none z-40 absolute md:relative inset-y-0 left-0 transition-transform duration-500 md:rounded-3xl overflow-hidden",
-        isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        "w-80 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/60 dark:border-slate-800/60 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-none z-40 absolute md:relative landscape:max-[1200px]:!absolute inset-y-0 left-0 transition-transform duration-500 md:rounded-3xl overflow-hidden",
+        isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0 landscape:max-[1200px]:!-translate-x-full"
       )}>
         <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-950 transition-colors">
           <div className="flex items-center gap-3 text-slate-900 dark:text-white">
